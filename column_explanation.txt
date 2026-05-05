@@ -1,0 +1,159 @@
+RETAIL DEMAND FORECASTING – COLUMN EXPLANATION
+
+---
+
+1. IDENTIFIER COLUMNS
+
+Store:
+Unique identifier for each store. Different stores have different sizes, types, and demand patterns.
+
+Dept:
+Department identifier within a store (e.g., Grocery, Electronics, Clothing). Sales are predicted per store and department.
+
+---
+
+2. TIME-RELATED COLUMNS
+
+Date:
+Represents the week of sales. The dataset is aggregated at a weekly level.
+
+IsHoliday:
+Indicates whether the given week includes a holiday. Holidays significantly impact sales patterns.
+
+---
+
+3. TARGET VARIABLE
+
+Weekly_Sales:
+The total sales for a given store and department in a specific week. This is the variable the model predicts.
+
+---
+
+4. ECONOMIC FEATURES
+
+Temperature:
+Represents weather conditions. Certain products have seasonal demand (e.g., cold drinks in summer).
+
+Fuel_Price:
+Represents fuel cost. Higher fuel prices can reduce store visits and overall spending.
+
+CPI (Consumer Price Index):
+Measures inflation. Higher CPI indicates increased prices, reducing purchasing power.
+
+Unemployment:
+Represents the unemployment rate. Higher unemployment typically leads to lower consumer spending.
+
+---
+
+5. PROMOTION FEATURES (MARKDOWN)
+
+MarkDown1:
+Seasonal promotions.
+
+MarkDown2:
+Electronics discounts.
+
+MarkDown3:
+Clothing clearance sales.
+
+MarkDown4:
+Storewide campaigns.
+
+MarkDown5:
+Holiday promotions.
+
+Higher values indicate stronger promotional activity, which directly increases sales.
+
+---
+
+6. STORE CHARACTERISTICS
+
+Type:
+Store category:
+A = Large scale store
+B = Medium scale store
+C = Small scale store
+
+Size:
+Physical size of the store. Larger stores generally have higher sales capacity.
+
+---
+
+7. TIME ENGINEERED FEATURES
+
+Year:
+Captures yearly trends in sales.
+
+Month:
+Captures seasonal variations across months.
+
+Week:
+Captures weekly trends.
+
+DayOfWeek:
+Numerical representation of the day (useful for time structure).
+
+---
+
+8. LAG FEATURES (HISTORICAL MEMORY)
+
+Lag_1:
+Sales from the previous week.
+
+Lag_2:
+Sales from two weeks ago.
+
+Lag_4:
+Sales from four weeks ago (approximately one month).
+
+These features help the model understand recent trends.
+
+---
+
+9. ROLLING FEATURES
+
+Rolling_Mean_4:
+Average sales over the last 4 weeks.
+
+Rolling_Std_4:
+Standard deviation of sales over the last 4 weeks.
+
+These features capture trend stability and volatility.
+
+---
+
+10. ADVANCED FEATURES (IF USED)
+
+Week_sin, Week_cos:
+Cyclical encoding of weeks to capture seasonality.
+
+Total_Markdown:
+Sum of all markdown values representing total promotional strength.
+
+Promo_Flag:
+Binary indicator (0 or 1) showing whether any promotion is active.
+
+Lag_13:
+Sales from 13 weeks ago (approximately 3 months).
+
+Lag_52:
+Sales from 52 weeks ago (previous year).
+
+Same_Week_Last_Year:
+Sales from the same week in the previous year. Important for year-over-year comparison.
+
+Rolling_Mean_8:
+Average sales over the last 8 weeks for longer trend analysis.
+
+---
+
+SUMMARY
+
+The dataset combines:
+
+* Temporal features (date, week, month)
+* Economic indicators (CPI, fuel price, unemployment)
+* Promotional features (markdowns)
+* Historical sales patterns (lags and rolling features)
+
+These collectively help the model accurately predict weekly retail demand.
